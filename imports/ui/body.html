@@ -1,0 +1,58 @@
+<body>
+<nav class="light-blue lighten-1">
+    <div class="container nav-wrapper">
+            <a id="logo-container" href="#" class="brand-logo"><img src='/mistral_small.png'/></a>
+        <ul class="right">
+            {{> loginButtons}}
+        </ul>
+    </div>
+</nav>
+<br/>
+<br/>
+<div class="container">
+    {{#if currentUser}}
+        <form class="new-project">
+            <h5>Add new project</h5>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input name="name" type="text">
+                    <label for="name">Project name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input name="description" type="text">
+                    <label for="description">Project description</label>
+                </div>
+            </div>
+            <input type="submit" name="add-project" value="Add new project" class="btn waves-effect waves-light"/>
+        </form>
+    {{else}}
+        <div class="section no-pad-bot">
+            <div class="container">
+                <h3 class="header center light">Release planning in Mistral</h3>
+                <div class="row center">
+                    <div class="collection-header header">
+                        The advantages of a release plan:
+                    </div>
+                    <div class="collection">
+                        <div class="collection-item">It gives the team a common vision about what needs to be achieved,
+                            and when.
+                        </div>
+                        <div class="collection-item">It guides the team to make decisions during detailed planning.
+                        </div>
+                        <div class="collection-item">It helps prioritize the stories. It resolves conflicts and guides
+                            the team(s) toward the right balance on trade-offs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <div class="row">
+        {{#each projects}}
+            {{> project}}
+        {{/each}}
+    </div>
+</div>
+</body>
